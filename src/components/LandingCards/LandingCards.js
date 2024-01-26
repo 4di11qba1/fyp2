@@ -25,7 +25,7 @@ function LandingCards({ itemData, windowWidth }) {
       cardRefs.current[checkedIndex].scrollIntoView({
         behavior: 'smooth',
         block: 'center',
-        inline: 'center',
+        // inline: 'center',
       });
     }
   }, [checkedIndex]);

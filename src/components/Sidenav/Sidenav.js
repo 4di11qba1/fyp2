@@ -23,6 +23,7 @@ import LandingCards from '../LandingCards/LandingCards.js';
 import './Sidenav.css';
 import MiniCard from '../MiniCard.js';
 import VerticalCard from '../VerticalCard/VerticalCard.js';
+import BoxCard from '../BoxCard/BoxCard.js';
 
 const drawerWidth = 240;
 
@@ -299,7 +300,7 @@ export default function MiniDrawer({ windowWidth, lightTheme, darkTheme, darkMod
             </ListItem>
         </List>
       </Drawer>
-      <Box component="main" sx={{ width: '50vw', flexGrow: 1, padding: '5vh 15px 15px 15px' }}>
+      <Box component="main" sx={{ width: '50vw', flexGrow: 1, padding: '10vh 15px 15px 15px' }}>
         <DrawerHeader />
         
         <LandingCards itemData={itemData.concat(itemData)} />
@@ -318,7 +319,7 @@ export default function MiniDrawer({ windowWidth, lightTheme, darkTheme, darkMod
           })}
         </div>
 
-        <div style={{display: 'flex', justifyContent: 'space-between', width: '100%', padding: '15px'}}>
+        <div style={{display: 'flex', justifyContent: 'space-between', width: '100%', padding: '15px', marginTop: '15px'}}>
           <Typography variant='h5' component='div'>
             Trending
           </Typography>
@@ -334,7 +335,19 @@ export default function MiniDrawer({ windowWidth, lightTheme, darkTheme, darkMod
             return <VerticalCard key={index} item={item} />
           })}
         </div>
-      
+        <div style={{display: 'flex', justifyContent: 'space-between', width: '100%', padding: '15px', marginTop: '15px'}}>
+          <Typography variant='h5' component='div'>
+            Trending
+          </Typography>
+          <IconButton>
+            <ArrowForward />
+          </IconButton>
+        </div>
+        <div className="scrollableElement" style={{display: 'flex', width: '94vw', alignItems: 'center', justifyContent: 'center', gap: '15px', flexWrap: 'wrap'}}>
+          {itemData.map((item, index) => {
+            return <BoxCard key={index} item={item} />
+          })}
+        </div>
       </Box>
     </Box>
   );

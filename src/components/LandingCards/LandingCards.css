@@ -8,9 +8,9 @@
 .lc-wrapper {
     width: 94vw;
     margin-left: 1vw;
-    height: 60vh;
+    height: 80vh;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     overflow-x: scroll;
 }
 
@@ -32,7 +32,8 @@
 }
 
 .lc-card {
-    width: 80px;
+    width: 310px;
+    height: 600px;
     background-size: cover;
     cursor: pointer;
     overflow: hidden;
@@ -91,7 +92,8 @@
 
 @media screen and (min-width: 1000px) {
     .lc-input:checked + label {
-        width: 600px;
+        width: 1000px;
+        height: 600px;
     }
 }
 
