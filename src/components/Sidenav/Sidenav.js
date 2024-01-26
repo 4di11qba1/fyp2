@@ -23,7 +23,7 @@ import LandingCards from '../LandingCards/LandingCards.js';
 import './Sidenav.css';
 import MiniCard from '../MiniCard.js';
 import VerticalCard from '../VerticalCard/VerticalCard.js';
-import BoxCard from '../BoxCard/BoxCard.js';
+import BoxCard from '../BoxCard.js';
 
 const drawerWidth = 240;
 

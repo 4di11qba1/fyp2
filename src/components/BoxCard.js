@@ -5,7 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { Star } from '@mui/icons-material';
 import Typography from '@mui/material/Typography';
-import { darkTheme } from '../Theme';
+import { darkTheme } from './Theme';
 
 export default function BoxCard({item}) {
   return (
