@@ -38,22 +38,17 @@ export const lightTheme = createTheme({
                 },
             },
         },
-        MuiButton: {
-            styleOverrides: {
-                root: {
-                    backgroundColor: 'black', // Set the default background color
-                    color: 'white',
-                    '&:hover': {
-                        backgroundColor: 'white',
-                        color: 'black'
-                    }
-                },
-            },
-        },
         MuiDivider: {
             styleOverrides: {
                 root: {
                     color: 'black'
+                },
+            },
+        },
+        MuiButton: {
+            styleOverrides: {
+                root: {
+                    color: '#000000'
                 },
             },
         },
@@ -82,23 +77,18 @@ export const darkTheme = createTheme({
                 },
             },
         },
+        MuiButton: {
+            styleOverrides: {
+                root: {
+                    color: '#ffffff'
+                },
+            },
+        },
         MuiCard: {
             styleOverrides: {
             root: {
                 boxShadow: 'none'
             },
-            },
-        },
-        MuiButton: {
-            styleOverrides: {
-                root: {
-                    backgroundColor: '#ffffff', // Set the default background color
-                    color: 'black',
-                    '&:hover': {
-                    backgroundColor: 'black',
-                    color: 'white'
-                    }
-                },
             },
         },
         MuiDivider: {

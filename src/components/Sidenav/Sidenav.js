@@ -13,17 +13,16 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import { ArrowForward, BrowseGallery, Home } from '@mui/icons-material';
+import { Home } from '@mui/icons-material';
+import GradeIcon from '@mui/icons-material/Grade';
 import { Login, Logout, AppRegistration } from '@mui/icons-material';
 import { LightMode, DarkMode } from '@mui/icons-material';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Routes, Route } from 'react-router-dom';
 import { useEffect } from 'react';
 import PersonIcon from '@mui/icons-material/Person';
-import LandingCards from '../LandingCards/LandingCards.js';
 import './Sidenav.css';
-import MiniCard from '../MiniCard.js';
-import VerticalCard from '../VerticalCard/VerticalCard.js';
-import BoxCard from '../BoxCard.js';
+import Main from '../Main';
+import Library from '../Library';
 
 const drawerWidth = 240;
 
@@ -92,7 +91,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-export default function MiniDrawer({ windowWidth, lightTheme, darkTheme, darkMode, changeMode, itemData }) {
+export default function MiniDrawer({ windowWidth, darkMode, changeMode, itemData }) {
   const [open, setOpen] = React.useState(false);
   const nav = useNavigate();
   const location = useLocation();
@@ -162,7 +161,7 @@ export default function MiniDrawer({ windowWidth, lightTheme, darkTheme, darkMod
           </IconButton>
         </DrawerHeader>
         <List>
-          <ListItem disablePadding sx={{ display: 'block' }} onClick={() => navigateTo('/store')}>
+          <ListItem disablePadding sx={{ display: 'block' }} onClick={() => navigateTo('/')}>
             <ListItemButton
               sx={{
                 minHeight: 48,
@@ -184,14 +183,14 @@ export default function MiniDrawer({ windowWidth, lightTheme, darkTheme, darkMod
               <ListItemText primary='Home' sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
           </ListItem>
-          <ListItem disablePadding sx={{ display: 'block' }} onClick={() => navigateTo('/store/library')}>
+          <ListItem disablePadding sx={{ display: 'block' }} onClick={() => navigateTo('/library')}>
             <ListItemButton
               sx={{
                 minHeight: 48,
                 justifyContent: open ? 'initial' : 'center',
                 px: 2.5,
                 borderRadius: '0 30px 30px 0',
-                bgcolor: isActive('/store/library') ? 'background.default' : ''
+                bgcolor: isActive('/library') ? 'background.default' : ''
               }}
             >
               <ListItemIcon
@@ -201,7 +200,7 @@ export default function MiniDrawer({ windowWidth, lightTheme, darkTheme, darkMod
                   justifyContent: 'center',
                 }}
               >
-                <BrowseGallery />
+                <GradeIcon />
               </ListItemIcon>
               <ListItemText primary='Library' sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
@@ -303,51 +302,11 @@ export default function MiniDrawer({ windowWidth, lightTheme, darkTheme, darkMod
       <Box component="main" sx={{ width: '50vw', flexGrow: 1, padding: '10vh 15px 15px 15px' }}>
         <DrawerHeader />
         
-        <LandingCards itemData={itemData.concat(itemData)} />
+        <Routes>
+          <Route exact path='/' element={<Main itemData={itemData} />} />
+          <Route exact path='/library' element={<Library itemData={itemData} />} />
+        </Routes>
         
-        <div style={{display: 'flex', justifyContent: 'space-between', width: '100%', padding: '15px'}}>
-          <Typography variant='h5' component='div'>
-            Top Choices
-          </Typography>
-          <IconButton>
-            <ArrowForward />
-          </IconButton>
-        </div>
-        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', flexWrap: 'wrap', gap: '15px'}}>
-          {itemData.map((item, index) => {
-            return <MiniCard key={index} item={item} />
-          })}
-        </div>
-
-        <div style={{display: 'flex', justifyContent: 'space-between', width: '100%', padding: '15px', marginTop: '15px'}}>
-          <Typography variant='h5' component='div'>
-            Trending
-          </Typography>
-          <IconButton>
-            <ArrowForward />
-          </IconButton>
-        </div>
-        <div className="scrollableElement" style={{display: 'flex', width: '94vw', alignItems: 'center', overflowX: 'scroll', gap: '15px'}}>
-          {itemData.map((item, index) => {
-            return <VerticalCard key={index} item={item} />
-          })}
-          {itemData.map((item, index) => {
-            return <VerticalCard key={index} item={item} />
-          })}
-        </div>
-        <div style={{display: 'flex', justifyContent: 'space-between', width: '100%', padding: '15px', marginTop: '15px'}}>
-          <Typography variant='h5' component='div'>
-            Trending
-          </Typography>
-          <IconButton>
-            <ArrowForward />
-          </IconButton>
-        </div>
-        <div className="scrollableElement" style={{display: 'flex', width: '94vw', alignItems: 'center', justifyContent: 'center', gap: '15px', flexWrap: 'wrap'}}>
-          {itemData.map((item, index) => {
-            return <BoxCard key={index} item={item} />
-          })}
-        </div>
       </Box>
     </Box>
   );

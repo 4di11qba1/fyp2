@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { IconButton, Pagination as MuiPagination } from '@mui/material';
-import InfoIcon from '@mui/icons-material/Info';
+import { Pagination as MuiPagination } from '@mui/material';
 import './LandingCards.css';
+import MyButton from '../MyButton/MyButton';
 
 function LandingCards({ itemData, windowWidth }) {
   const [checkedIndex, setCheckedIndex] = useState(0);
@@ -54,14 +54,12 @@ function LandingCards({ itemData, windowWidth }) {
                 }}
               >
                 <div className="lc-row">
-                  <div className="lc-icon">
-                    <IconButton>
-                      <InfoIcon />
-                    </IconButton>
-                  </div>
                   <div className="lc-description">
-                    <h4>{item.title}</h4>
+                    <h1>{item.title}</h1>
                     <p>{item.genre}</p>
+                  </div>
+                  <div className="lc-icon">
+                    <MyButton bgColor={item.bgColor} text={'See More'} w={'200px'} h={'50px'} />
                   </div>
                 </div>
               </label>

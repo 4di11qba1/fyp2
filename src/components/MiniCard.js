@@ -1,8 +1,7 @@
 import { Card, CardMedia, ListItemText } from '@mui/material';
-import { Button } from '@mui/material';
 import { Star } from '@mui/icons-material';
 import React from 'react';
-import { darkTheme, lightTheme, darkMode } from './Theme';
+import { darkTheme } from './Theme';
 
 function MiniCard({ item }) {
   return (
