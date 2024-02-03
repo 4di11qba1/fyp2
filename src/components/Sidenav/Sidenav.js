@@ -207,7 +207,7 @@ export default function MiniDrawer({ windowWidth, darkMode, changeMode, itemData
           </ListItem>
         </List>
         <List>
-        <ListItem disablePadding sx={{ display: 'block' }} onClick={() => navigateTo('/signin')}>
+        <ListItem disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -229,7 +229,7 @@ export default function MiniDrawer({ windowWidth, darkMode, changeMode, itemData
                 <ListItemText primary='Sign In' sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
             </ListItem>
-            <ListItem disablePadding sx={{ display: 'block' }} onClick={() => navigateTo('/signup')}>
+            <ListItem disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
