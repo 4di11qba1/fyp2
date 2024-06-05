@@ -27,12 +27,17 @@ function SignIn({ windowWidth, darkMode }) {
             style={{
                 display: 'flex', 
                 justifyContent: 'center', 
-                alignItems: 'center', 
+                alignItems: 'center',
+                flexDirection: 'column',
+                gap: '20px', 
                 width: '100vw', 
                 height: '100vh',
                 backgroundColor: darkMode ? darkTheme.palette.background.default : lightTheme.palette.background.default
             }}
                 >
+                    <Typography component={'div'} variant='h3' sx={{color: darkTheme.palette.primary.text}}>
+                        Gamer's Utopia
+                    </Typography>
                 <Card sx={{display: 'flex', flexDirection: 'row', borderRadius: '15px', transition: 'all 1s'}}>
         
                     { 
